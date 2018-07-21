@@ -1,36 +1,46 @@
 {
-  "name": "baki",
-  "version": "0.1.0",
-  "dependencies": {
-    "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
-  },
-  "devDependencies": {
-    "@types/expo": "^27.0.6",
-    "@types/jest": "^23.3.0",
-    "@types/react": "^16.4.6",
-    "@types/react-native": "^0.56.3",
-    "@types/react-test-renderer": "^16.0.1",
-    "concurrently": "^3.6.0",
-    "jest-expo": "~27.0.0",
-    "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1",
-    "rimraf": "^2.6.2",
-    "ts-jest": "^23.0.1",
-    "tslint": "^5.11.0",
-    "typescript": "^2.9.2"
-  },
-  "jest": {
-    "preset": "jest-expo"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
-  "private": true,
-  "scripts": {
-    "android": "react-native-scripts android",
-    "eject": "react-native-scripts eject",
-    "ios": "react-native-scripts ios",
-    "start": "react-native-scripts start",
-    "test": "jest"
-  }
+	"name": "baki",
+	"version": "0.1.0",
+	"dependencies": {
+		"expo": "^27.0.1",
+		"react": "16.3.1",
+		"react-native": "~0.55.2"
+	},
+	"devDependencies": {
+		"@types/expo": "^27.0.6",
+		"@types/jest": "^23.3.0",
+		"@types/react": "^16.4.6",
+		"@types/react-native": "^0.56.3",
+		"@types/react-test-renderer": "^16.0.1",
+		"concurrently": "^3.6.0",
+		"jest-expo": "~27.0.0",
+		"react-native-scripts": "1.14.0",
+		"react-test-renderer": "16.3.1",
+		"rimraf": "^2.6.2",
+		"ts-jest": "^23.0.1",
+		"tslint": "^5.11.0",
+		"typescript": "^2.9.2"
+	},
+	"jest": {
+		"preset": "jest-expo"
+	},
+	"main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+	"private": true,
+	"scripts": {
+		"android": "react-native-scripts android",
+		"build": "npm run clean && npm run tsc --",
+		"buildAndStart": "npm run build && npm run watchAndStart ",
+		"buildRunAndroid": "npm run build && npm run watchAndRunAndroid ",
+		"buildRunIOS": "npm run build && npm run watchAndRunIOS ",
+		"clean": "rimraf build",
+		"ios": "react-native-scripts ios",
+		"lint": "tslint src/**/*.ts",
+		"start": "react-native-scripts start",
+		"test": "node node_modules/jest/bin/jest.js",
+		"tsc": "tsc",
+		"watch": "npm run build -- -w",
+		"watchAndRunAndroid": "concurrently \"npm run watch\" \"npm run android\"",
+		"watchAndRunIOS": "concurrently \"npm run watch\" \"npm run ios\"",
+		"watchAndStart": "concurrently \"npm run watch\" \"npm run start\""
+	}
 }
